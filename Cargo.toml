@@ -1,0 +1,32 @@
+[package]
+name = "moonrise"
+version = "0.0.1-rc.1"
+authors = ["valkyrie_pilot <valk@randomairborne.dev>"]
+edition = "2021"
+rust-version = "1.64"
+description = "An opinionated framework for building Discord slash command bots that recieve over HTTP"
+documentation = "https://docs.rs/weblash"
+readme = "README.md"
+homepage = "https://github.com/randomairborne/weblash"
+repository = "https://github.com/randomairborne/weblash"
+license = "MIT OR Apache-2.0"
+keywords = ["discord", "slash-commands"]
+categories = ["api-bindings"]
+
+[features]
+default = ["server"]
+server = ["hyper", "tokio"]
+simdjson = ["simd-json"]
+
+[dependencies]
+tokio = { version = "1", features = ["net"], optional = true }
+hyper = { version = "0.14", features = ["server", "http1"], optional = true }
+serde = { version = "1", features = ["derive"] }
+simd-json = { version = "0.6", optional = true }
+http = "0.2"
+serde_json = "1"
+ed25519-dalek = "1"
+hex = "0.4"
+twilight-model = "0.13"
+twilight-http = "0.13"
+thiserror = "1"
