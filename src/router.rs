@@ -1,15 +1,11 @@
+use twilight_model::application::command::Command;
 pub struct Router {
     
 }
 
 pub struct CommandHierarchy {
-    slashes: Vec<TopLevelCommand>,
-    user: Vec<UserCommand>,
-    message: Vec<MessageCommand>
+    slashes: Vec<Command>,
+    user: Vec<Command>,
+    message: Vec<Command>
 }
 
-pub enum TopLevelCommand {
-
-}
-
-pub SecondLevelCommand
