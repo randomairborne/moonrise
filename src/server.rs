@@ -3,7 +3,9 @@ use hyper::{server::conn::Http, service::service_fn, Body};
 use std::{convert::Infallible, net::SocketAddr};
 use tokio::net::TcpListener;
 
-pub struct Server;
+pub struct Server {
+    cmds: crate::router::CommandHierarchy,
+};
 
 impl Server {
     pub async fn serve(addr: SocketAddr) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
@@ -25,5 +27,8 @@ impl Server {
 
     async fn handle_discord_message(_req: Request<Body>) -> Result<Response<Body>, Infallible> {
         Ok(Response::new(Body::from("Hello World!")))
+    }
+    pub async fn new(router: crate::router::Router) -> Self {
+
     }
 }
